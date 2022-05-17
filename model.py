@@ -89,13 +89,13 @@ model.fit(X_train, y_train, epochs=100)
 
 
 # Make and plot predictions for model_1
-y_preds = model.predict(X_test)
+y_preds = model.predict(X_test).reshape(-1,1)
 plot_predictions(train_data=X_train, train_labels=y_train,  test_data=X_test, test_labels=y_test,  predictions=y_preds)
 
 
 # Calculate model_1 metrics
-mae_1 = np.round(float(mae(y_test, y_preds.squeeze()).numpy()), 2)
-mse_1 = np.round(float(mse(y_test, y_preds.squeeze()).numpy()), 2)
+mae_1 = np.round(float(mae(y_test, y_preds), 2)
+mse_1 = np.round(float(mse(y_test, y_preds), 2)
 print(f'\nMean Absolute Error = {mae_1}, Mean Squared Error = {mse_1}.')
 
 # Write metrics to file
